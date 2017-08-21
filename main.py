@@ -1,19 +1,20 @@
 ## Take user's name
 # name=input("What is your name?\n")
 # print("Hello",name+"! Lets start checking plagiarized files.")
-##Take input for first file
-# txt1=input("Enter first test:\n")
-txt1="To be or not to be"
+##Take input for first filewith open("txt1.txt","r") as myfile:
+txt1=open("txt1.txt").read()
+print("First file: ",txt1,"\n")
 ##Take input for second file
-# txt2=input("Enter second text:\n")
-txt2="Doubt truth to be a Liar"
+txt2=open("txt2.txt").read()
+print("Second file: ",txt2,"\n")
 ##Making all words lower case
-txt1=txt1.lower()
-txt2=txt2.lower()
+# txt1=txt1.lower()
+# txt2=txt2.lower()
 ##Making lists
 L1=txt1.split()
 L2=txt2.split()
 ## Creating dictionaries for lists with frequency functions
+##Bag of Words
 d1={}
 d2={}
 d3={}
@@ -24,7 +25,6 @@ for c in L3:
 UniqueWords=[]
 for a in d3:
     UniqueWords.append(a)
-print(UniqueWords)
 for word in UniqueWords:
     for char in word:
         if (ord(char)>=65 and ord(char)<=90) or (ord(char)>=97 and ord(char)<=122) or ord(char)==95:
@@ -43,4 +43,4 @@ for num in d2.values():
 for a in UniqueWords:
     dot+= d1[a]*d2[a]
 cos=dot/(euc1*euc2)
-print(cos*100,"%")
+print("Percentage of bag words:",cos*100,"%")
