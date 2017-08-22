@@ -38,18 +38,19 @@ def bagofWords(txt1,txt2):
     cos=dot/(euc1*euc2)**0.5
     return "Files match by "+str(round(cos*100,2))+" %"
 ##String Matching functions
-def stringMatch(txt1,txt2):
-    ##Making lists
-    L1=txt1.split()
-    L2=txt2.split()
-    for a in L1:
-        for b in L2:
-            if a==b:
-                LCS=len(a)
-    totalLen=0
-    for a in L1+L2:
-        totalLen+=len(a)
-    match=(LCS*2)/(totalLen+len(L1)+len(L2)-2)
+def stringMatch(txt1, txt2):
+    answer = ""
+    m, n = len(txt1), len(txt2)
+    for i in range(m):
+        match = ""
+        for j in range(n):
+            if (i + j < m and txt1[i + j] == txt2[j]):
+                match += txt2[j]
+            else:
+                if (len(match) > len(answer)): answer = match
+                match = ""
+    LCS=len(answer[:-1])
+    match=(LCS*2)/(len(txt1)+len(txt2))
     return "Files match by "+str(round(100*match,2))+" %"
 ## Take user's name
 # name=input("What is your name?\n")
@@ -60,4 +61,5 @@ print("First file: ",txt1,"\n")
 ##Take input for second file
 txt2=open("txt2.txt").read()
 print("Second file: ",txt2,"\n")
+print(bagofWords(txt1,txt2))
 print(stringMatch(txt1,txt2))
