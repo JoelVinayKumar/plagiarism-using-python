@@ -1,6 +1,8 @@
-##Bag of words Function
+"""Bag of words Function:
+In this method you have to compute a distance (an angle) between two given documents or
+between two strings using the cosine similarity metric. """
 #Making all words lower case
-def bagofWords(txt1,txt2):
+def bagofWords(self,txt2):
     txt1=txt1.lower()
     txt2=txt2.lower()
     ##Making lists
@@ -36,9 +38,11 @@ def bagofWords(txt1,txt2):
     for a in UniqueWords:
         dot+= d1[a]*d2[a]
     cos=dot/(euc1*euc2)**0.5
-    return "Files match by "+str(round(cos*100,2))+" %"
-##String Matching functions
-def stringMatch(txt1, txt2):
+    return str(round(cos*100,2))+" %"
+"""String Matching functions:
+In this method every text document is checked for common sub strings with the verifying
+document."""
+def stringMatch(self, txt2):
     answer = ""
     m, n = len(txt1), len(txt2)
     for i in range(m):
@@ -51,15 +55,44 @@ def stringMatch(txt1, txt2):
                 match = ""
     LCS=len(answer[:-1])
     match=(LCS*2)/(len(txt1)+len(txt2))
-    return "Files match by "+str(round(100*match,2))+" %"
+    return str(round(100*match,2))+" %"
+"""In this method every text document is checked for signatures with verifying document. Signature
+is set of words in contiguous sequence (set of words written together) equivalent to sentences in
+a paragraph (document)."""
+def fingerPrinting(self,txt2):
+    def hash(string):
+        d={}
+        k=[]
+        v=[]
+        string=string.lower()
+        k=len(string)
+        for i in range(1,27):
+            d[chr(i+96)]=i
+        for x in string:
+            if ord(x)>=97 and ord(x)<=122:
+                i=0
+                sum=0
+                sum+=d[x]*(k**i)
+                i+=1
+        return sum
+    L1=txt1.split()
+    L2=txt2.split()
+    L3=[]
+    i=0
+    for a in L1:
+        while i<=len(txt2)-4:
+            L3.append(hash(txt2[i:i+4]))
+            i+=1
+    print(L3)
 ## Take user's name
-# name=input("What is your name?\n")
-# print("Hello",name+"! Lets start checking plagiarized files.")
+name=input("What is your name?\n")
+print("Hello",name+"! Lets start checking plagiarized files.")
 ##Take input for first file
 txt1=open("txt1.txt").read()
 print("First file: ",txt1,"\n")
 ##Take input for second file
 txt2=open("txt2.txt").read()
 print("Second file: ",txt2,"\n")
-print(bagofWords(txt1,txt2))
-print(stringMatch(txt1,txt2))
+print("Bag of words: \n"+str(bagofWords(txt1,txt2)),"\n")
+print("String match function: \n"+str(stringMatch(txt1,txt2)))
+fingerPrinting(txt1,txt2)
