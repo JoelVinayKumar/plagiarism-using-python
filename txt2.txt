@@ -1,1 +1,2 @@
-My name is xyz
+This method results in both false positive and false negative which is not
+representing actual copied document and not identifying a copied document

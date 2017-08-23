@@ -1,0 +1,2 @@
+In this method every text document is checked for common sub strings with the verifying
+document
