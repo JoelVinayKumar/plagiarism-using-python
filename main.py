@@ -58,7 +58,7 @@ class stringMatch:
     def output(self):
         for x in range(len(self.L)):
             for y in range(len(self.L)):
-                print("(",x,",",y,")",str(self.stringMat(self.txtfilter(opentxt(L[x])),self.txtfilter(opentxt(L[y])))),end="    ")
+                print("(",x,",",y,")-->",str(self.stringMat(self.txtfilter(opentxt(L[x])),self.txtfilter(opentxt(L[y])))),end="    ")
             print("\n")
     def txtfilter(self,s):
         L=s.split()
