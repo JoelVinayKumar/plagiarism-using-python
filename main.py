@@ -58,23 +58,32 @@ class stringMatch:
     def output(self):
         for x in range(len(self.L)):
             for y in range(len(self.L)):
-                print(self.stringMat(opentxt(L[x]),opentxt(L[y])),end="    ")
+                print("(",x,",",y,")",str(self.stringMat(self.txtfilter(opentxt(L[x])),self.txtfilter(opentxt(L[y])))),end="    ")
             print("\n")
+    def txtfilter(self,s):
+        L=s.split()
+        sentence=""
+        for x in L:
+            sentence+=x
+        return sentence
     def stringMat(self,txt1, txt2):
-        answer = ""
-        m, n = len(txt1), len(txt2)
-        for i in range(m):
-            match = ""
-            for j in range(n):
-                if (i + j < m and txt1[i + j] == txt2[j]):
-                    match += txt2[j]
-                else:
-                    if (len(match) > len(answer)):
-                        answer = match
-                    match = ""
-        LCS=len(answer[:-1])
-        output=(LCS*2)/(len(txt1)+len(txt2))
-        return round(100*output,2)
+        if txt1==txt2:
+            return 0
+        else:
+            answer = ""
+            m, n = len(txt1), len(txt2)
+            for i in range(m):
+                match = ""
+                for j in range(n):
+                    if (i + j < m and txt1[i + j] == txt2[j]):
+                        match += txt2[j]
+                    else:
+                        if (len(match) > len(answer)):
+                            answer = match
+                        match = ""
+            LCS=len(answer[:-1])
+            output=(LCS*2)/(len(txt1)+len(txt2))
+            return round(100*output,2)
 # def fingerPrinting(txt1,txt2):
 #     def hash(string):
 #         d={}
