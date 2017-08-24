@@ -8,7 +8,7 @@ class bagofWords:
     def output(self):
         for x in range(len(self.L)):
             for y in range(len(self.L)):
-                print(self.sackofWords(opentxt(L[x]),opentxt(L[y])),end="    ")
+                print("(",x,",",y,")-->",self.sackofWords(opentxt(L[x]),opentxt(L[y])),end="    ")
             print("\n")
     def sackofWords(self,txt1,txt2):
         if txt1==txt2:
