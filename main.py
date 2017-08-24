@@ -81,7 +81,7 @@ class stringMatch:
                         if (len(match) > len(answer)):
                             answer = match
                         match = ""
-            LCS=len(answer[:-1])
+            LCS=len(answer)
             output=(LCS*2)/(len(txt1)+len(txt2))
             return round(100*output,2)
 # def fingerPrinting(txt1,txt2):
