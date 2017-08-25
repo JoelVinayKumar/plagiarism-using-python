@@ -1,13 +1,33 @@
 # # This function reads text from a directory and returns the same
 def opentxt(dir):
     txt=open(dir).read()
-    return txt
+    # txt=''.join(e for e in txt if e.isalnum())
+    txt=(txt.replace('!','')).replace('<','')
+    txt=(txt.replace('@','')).replace('>','')
+    txt=(txt.replace('#','')).replace('.','')
+    txt=(txt.replace('$','')).replace('"','')
+    txt=(txt.replace('%',''))
+    txt=txt.replace('^','')
+    txt=txt.replace('&','')
+    txt=txt.replace('*','')
+    txt=txt.replace('(','')
+    txt=txt.replace(')','')
+    txt=txt.replace('-','')
+    txt=(txt.replace('?','')).replace('/','')
+    txt=txt.replace('+','')
+    txt=txt.replace('=','')
+    txt=txt.replace('`','')
+    txt=txt.replace('~','')
+    txt=txt.replace(':','')
+    txt=txt.replace(';','')
+    txt=(txt.replace('[','')).replace(']','')
+    txt=(txt.replace('{','')).replace('}','')
+    return txt.lower()
 # #This function finds the euclidean vector
 def vectorfinder(UW,d1,L1):
     for word in UW:
         for char in word:
-            if (ord(char)>=65 and ord(char)<=90) or (ord(char)>=97 and ord(char)<=122) or ord(char)==95:
-                d1[word]=L1.count(word)
+            d1[word]=L1.count(word)
     return d1
 # # This funciton retruns the cosine angle value
 def euclidean(d1,d2,UniqueWords):
