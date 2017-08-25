@@ -1,7 +1,6 @@
 # # This function reads text from a directory and returns the same
 def opentxt(dir):
     txt=open(dir).read()
-    # txt=''.join(e for e in txt if e.isalnum())
     txt=(txt.replace('!','')).replace('<','')
     txt=(txt.replace('@','')).replace('>','')
     txt=(txt.replace('#','')).replace('.','')
@@ -24,7 +23,8 @@ def opentxt(dir):
     txt=(txt.replace('{','')).replace('}','')
     return txt.lower()
 # #This function finds the euclidean vector
-def vectorfinder(UW,d1,L1):
+def vectorfinder(UW,L1):
+    d1={}
     for word in UW:
         for char in word:
             d1[word]=L1.count(word)
