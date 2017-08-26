@@ -1,3 +1,4 @@
+#Class for bag of Words
 class bagofWords:
     def __init__(self,L):
         self.L=L
@@ -33,6 +34,7 @@ class bagofWords:
             return euclidean(vector1,vector2,UW)
     def __str__(self):
         return "This function displays the matrix for bag of words"
+# Class for string match
 class stringMatch:
     def __init__(self,L):
         self.L=L

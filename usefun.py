@@ -1,4 +1,4 @@
-# # This function reads text from a directory and returns the same
+# # This function reads text from a directory,filters from special characters and returns the same
 def opentxt(dir):
     txt=open(dir).read()
     txt=(txt.replace('!','')).replace('<','')
