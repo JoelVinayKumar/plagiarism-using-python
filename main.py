@@ -93,6 +93,7 @@ class stringMatch:
 # name=input("What is your name?\n")
 # print("Hello",name+"! Lets start checking plagiarized files.")
 if __name__=='__main__':
+    #importing all necessary libraries
     import glob
     import math
     import time
@@ -103,11 +104,27 @@ if __name__=='__main__':
     from usefun import txtfilter
     from usefun import hashfun
     from tabulate import tabulate
+    #Reading location of directory
     loc=r'C:\Users\lavot\OneDrive\MSIT\03-CSPP-1\Final Project\plagiarismtest'
     eachfile=loc+'\*.txt'
+    #Appending all text files in directory to a list
     L=glob.glob(eachfile)
     b=bagofWords(L)
     s=stringMatch(L)
-    print(b.output())
-    print("\n\n")
-    print(s.output())
+    op=True
+    while op:
+        x=int(input("\nPress\n1---> Bag of Words  2--->String Match: "))
+        if x==1:
+            print(b.output())
+            print("\n")
+        elif x==2:
+            print(s.output())
+            print("\n")
+        else:
+            print("Uh Oh! Wrong option.....Try again !")
+        y=input("\nDo you want to continue? Press y (or) n: ")
+        if y=='y':
+            op=True
+        elif y=='n':
+            print("\nThanks for using our tool !\n")
+            op=False
