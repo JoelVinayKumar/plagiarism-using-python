@@ -1,37 +1,12 @@
-## Welcome to GitHub Pages
+## What is this project
 
-You can use the [editor on GitHub](https://github.com/JoelVinayKumar/plagiarismtest/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+* Pretty straight forward. It lets you compare plagiarism levels between files.
+* Simple code written using Bag of words,String match, Fingerprinting algorithms in python
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### How to run
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/JoelVinayKumar/plagiarismtest/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+* Download and unzip this project
+* Change the destination path accordingly in line 108
+* Replace .txt files with your desired files
+* `python main.py` in command prompt/terminal from same folder.
+* Hola ! You can see a table of plagiarism levels. You can decide, who's the thief now :P
